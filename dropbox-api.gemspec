@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'multi_json'
   s.add_dependency 'oauth'
   s.add_dependency 'hashie'
+  s.add_dependency 'faraday'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

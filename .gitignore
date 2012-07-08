@@ -5,3 +5,5 @@ pkg/*
 spec/connection.yml
 bin
 coverage
+.rvmrc
+
