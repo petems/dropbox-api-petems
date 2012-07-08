@@ -8,8 +8,7 @@ module Dropbox
         def request(options = {})
           response = yield
           raise Dropbox::API::Error::ConnectionFailed if !response
-          status = response.code.to_i
-          case status
+          case response.status
             when 401
               raise Dropbox::API::Error::Unauthorized
             when 403
@@ -32,28 +31,42 @@ module Dropbox
 
 
         def get_raw(endpoint, path, data = {}, headers = {})
-          query = Dropbox::API::Util.query(data)
           request(:raw => true) do
-            token(endpoint).get "#{Dropbox::API::Config.prefix}#{path}?#{URI.parse(URI.encode(query))}", headers
+            token(endpoint).get do |req|
+              req.url "#{Dropbox::API::Config.prefix}#{path}"
+              req.params.update(data)
+              req.headers.update(headers)
+            end
           end
         end
 
         def get(endpoint, path, data = {}, headers = {})
-          query = Dropbox::API::Util.query(data)
           request do
-            token(endpoint).get "#{Dropbox::API::Config.prefix}#{path}?#{URI.parse(URI.encode(query))}", headers
+            token(endpoint).get do |req|
+              req.url "#{Dropbox::API::Config.prefix}#{path}"
+              req.params.update(data)
+              req.headers.update(headers)
+            end
           end
         end
 
         def post(endpoint, path, data = {}, headers = {})
           request do
-            token(endpoint).post "#{Dropbox::API::Config.prefix}#{path}", data, headers
+            token(endpoint).post do |req|
+              req.url "#{Dropbox::API::Config.prefix}#{path}"
+              req.params.update(data)
+              req.headers.update(headers)
+            end
           end
         end
 
-        def put(endpoint, path, data = {}, headers = {})
+        def put(endpoint, path, data = '', headers = {})
           request do
-            token(endpoint).put "#{Dropbox::API::Config.prefix}#{path}", data, headers
+            token(endpoint).put do |req|
+              req.url "#{Dropbox::API::Config.prefix}#{path}"
+              req.body = data
+              req.headers.update(headers)
+            end
           end
         end
 

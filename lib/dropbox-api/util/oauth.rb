@@ -1,3 +1,6 @@
+require 'faraday'
+require 'faraday_middleware'
+
 module Dropbox
   module API
 
@@ -16,8 +19,15 @@ module Dropbox
             :access_token_path  => Dropbox::API::Config.prefix + "/oauth/access_token")
         end
 
-        def access_token(consumer, options = {})
-          ::OAuth::AccessToken.new(consumer, options[:token], options[:secret])
+        def access_token(url, options = {})
+          Faraday.new url do |faraday|
+            faraday.request :oauth,
+              :consumer_key => Dropbox::API::Config.app_key,
+              :consumer_secret => Dropbox::API::Config.app_secret,
+              :token => options[:token],
+              :token_secret => options[:secret]
+            faraday.adapter Faraday.default_adapter
+          end
         end
 
       end
