@@ -16,7 +16,7 @@ module Dropbox
         @tokens    = {}
         Dropbox::API::Config.endpoints.each do |endpoint, url|
           @consumers[endpoint] = Dropbox::API::OAuth.consumer(endpoint)
-          @tokens[endpoint]    = Dropbox::API::OAuth.access_token(url, options)
+          @tokens[endpoint]    = Dropbox::API::OAuth.access_token(@consumers[endpoint], options)
         end
       end
 

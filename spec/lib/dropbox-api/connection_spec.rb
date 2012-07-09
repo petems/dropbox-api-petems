@@ -75,7 +75,7 @@ describe Dropbox::API::Connection do
   describe "#consumer" do
 
     it "returns an appropriate consumer object" do
-      @connection.consumer(:main).should be_a(::OAuth::Consumer)
+      @connection.consumer(:main).should be_a(Dropbox::API::OAuth::Consumer)
     end
 
   end
