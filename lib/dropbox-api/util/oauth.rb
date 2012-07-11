@@ -33,6 +33,8 @@ module Dropbox
 
       class RequestToken
 
+        attr_accessor :token, :secret
+
         def initialize(consumer, token, secret)
           @consumer = consumer
           @token = token
