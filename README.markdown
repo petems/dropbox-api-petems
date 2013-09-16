@@ -1,4 +1,4 @@
-Dropbox::API - Dropbox Ruby API client
+Dropbox::API - Dropbox Ruby API client (PeteMS fork...)
 =========
 
 A Ruby client for the DropBox REST API.
@@ -61,16 +61,20 @@ on how to do this:
 ```ruby
 consumer = Dropbox::API::OAuth.consumer(:authorize)
 request_token = consumer.get_request_token
+# Store the token and secret so after redirecting we have the same request token
+session[:token] = request_token.token
+session[:token_secret] = request_token.secret
 request_token.authorize_url(:oauth_callback => 'http://yoursite.com/callback')
 # Here the user goes to Dropbox, authorizes the app and is redirected
-# The oauth_token will be available in the params
-request_token.get_access_token(:oauth_verifier => oauth_token)
+hash = { oauth_token: session[:token], oauth_token_secret: session[:token_secret]}
+request_token  = OAuth::RequestToken.from_hash(consumer, hash)
+result = request_token.get_access_token(:oauth_verifier => oauth_token)
 ```
 
 Now that you have the oauth token and secret, you can create a new instance of the Dropbox::API::Client, like this:
 
 ```ruby
-client = Dropbox::API::Client.new :token => token, :secret => secret
+client = Dropbox::API::Client.new :token => result.token, :secret => result.secret
 ```
 
 Rake-based authorization
@@ -194,6 +198,27 @@ Stores a file with a provided body under a provided name and returns a Dropbox::
 client.upload 'file.txt', 'file body' # => #<Dropbox::API::File>
 ```
 
+### Dropbox::API::Client#chunked_upload
+
+Stores a file using the chunked upload endpoint. This method issues multiple requests, and optionally takes a block, passing in the current upload byte offset and a unique ID usable for resuming uploads. Use this for uploading large files.
+
+For more info, see [https://www.dropbox.com/developers/reference/api#chunked-upload](https://www.dropbox.com/developers/reference/api#chunked-upload)
+
+Standard use:
+
+```ruby
+client.chunked_upload 'file.txt', 'file or IO object' # => #<Dropbox::API::File>
+```
+
+Using a block to show upload progress and save the upload id:
+
+```ruby
+client.chunked_upload 'file.txt', 'file or IO object' do |offset, resp|
+  @upload_id = resp[:upload_id]
+  puts "Uploaded #{offset} bytes"
+end
+```
+
 ### Dropbox::API::Client#download
 
 Downloads a file with a provided name and returns it's content
@@ -206,7 +231,7 @@ client.download 'file.txt' # => 'file body'
 
 When provided a pattern, returns a list of files or directories within that path
 
-Be default is searches the root path:
+By default it searches the root path:
 
 ```ruby
 client.search 'pattern' # => [#<Dropbox::API::File>, #<Dropbox::API::Dir>]
@@ -216,6 +241,24 @@ However, you can specify your own path:
 
 ```ruby
 client.search 'pattern', :path => 'somedir' # => [#<Dropbox::API::File>, #<Dropbox::API::Dir>]
+```
+
+### Dropbox::API::Client#delta
+
+Returns a cursor and a list of files that have changed since the cursor was generated.
+
+```ruby
+delta = client.delta 'abc123'
+delta.cursor # => 'def456'
+delta.entries # => [#<Dropbox::API::File>, #<Dropbox::API::Dir>]
+```
+
+When called without a cursor, it returns all the files.
+
+```ruby
+delta = client.delta 'abc123'
+delta.cursor # => 'abc123'
+delta.entries # => [#<Dropbox::API::File>, #<Dropbox::API::Dir>]
 ```
 
 Dropbox::API::File and Dropbox::API::Dir methods

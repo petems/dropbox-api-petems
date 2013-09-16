@@ -1,14 +1,18 @@
 module Dropbox
   module API
 
-    class Error < Exception
+    class Error < StandardError
 
-      class ConnectionFailed < Exception; end
-      class Config < Exception; end
-      class Unauthorized < Exception; end
-      class Forbidden < Exception; end
-      class NotFound < Exception; end
-      class Redirect < Exception; end
+      class BadInput < Error; end
+      class ConnectionFailed < Error; end
+      class Config < Error; end
+      class Unauthorized < Error; end
+      class Forbidden < Error; end
+      class NotFound < Error; end
+      class Redirect < Error; end
+      class WrongMethod < Error; end
+      class RateLimit < Error; end
+      class StorageQuota < Error; end
 
     end
 
