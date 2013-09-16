@@ -6,6 +6,7 @@ SimpleCov.start do
 end
 require 'dropbox-api'
 require 'rspec'
+require 'webmock/rspec'
 
 # If you wand to change the json, you can do it here
 # I still believe yajl is the best :) - marcinbunsch
