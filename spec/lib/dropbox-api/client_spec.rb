@@ -115,43 +115,6 @@ describe Dropbox::API::Client do
     end
   end
 
-  describe "#chunked_upload" do
-
-    before do
-      @filename = "/tmp/dropbox-api-largefile-test"
-      @size = 5*1024*1024 # 5MB, to test the 4MB chunk size
-      @file = File.open(@filename, "w") {|f| f.write "a"*@size}
-    end
-
-    it "puts a 5MB file in dropbox" do
-      filename = "#{Dropbox::Spec.test_dir}/test-5MB-#{Dropbox::Spec.namespace}.txt"
-      response = @client.chunked_upload filename, File.open(@filename)
-      response.path.should == filename
-      response.bytes.should == @size
-    end
-
-    it "yields current offset and upload id" do
-      filename = "#{Dropbox::Spec.test_dir}/test-yield-#{Dropbox::Spec.namespace}.txt"
-      log_offset = ""
-      log_upload = ""
-      response = @client.chunked_upload filename, File.open(@filename) do |offset, upload|
-        offset.should be > 0
-        log_offset += "#{offset.to_s},"
-        log_upload += upload.inspect
-        upload[:upload_id].length.should eq(22)
-      end
-      response.path.should == filename
-      response.bytes.should == @size
-      log_offset.should match(/[\d]{7},[\d]{7},/)
-      log_upload.should include("Dropbox::API::Object","upload_id=")
-    end
-
-    after do
-      FileUtils.rm @filename
-    end
-
-  end
-
   describe "#search" do
 
     let(:term) { "searchable-test-#{Dropbox::Spec.namespace}" }

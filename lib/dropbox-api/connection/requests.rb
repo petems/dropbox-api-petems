@@ -8,7 +8,7 @@ module Dropbox
         def request(options = {})
           response = yield
           raise Dropbox::API::Error::ConnectionFailed if !response
-          status = response.code.to_i
+          status = response.status.to_i
           case status
             when 300..399
               raise Dropbox::API::Error::Redirect.new("#{status} - Redirect Error")
