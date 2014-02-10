@@ -12,13 +12,13 @@ module Dropbox
           task :authorize do
             require "dropbox-api"
             require "cgi"
-            print "Enter consumer key: "
-            consumer_key = $stdin.gets.chomp
-            print "Enter consumer secret: "
-            consumer_secret = $stdin.gets.chomp
+            print "Enter app key: "
+            app_key = $stdin.gets.chomp
+            print "Enter app secret: "
+            app_secret = $stdin.gets.chomp
 
-            Dropbox::API::Config.app_key    = consumer_key
-            Dropbox::API::Config.app_secret = consumer_secret
+            Dropbox::API::Config.app_key    = app_key
+            Dropbox::API::Config.app_secret = app_secret
 
             consumer = Dropbox::API::OAuth.consumer(:authorize)
             request_token = consumer.get_request_token
