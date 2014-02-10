@@ -25,15 +25,12 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'rspec','2.14.1'
   s.add_development_dependency 'rake', '10.1.0'
-  s.add_development_dependency 'simplecov', '0.7.1'
-  s.add_development_dependency 'ruby-debug19', '0.11.6'
-  s.add_development_dependency 'yajl-ruby', '1.1.0'
 
-
-  s.add_development_dependency 'webmock'
+  s.add_development_dependency 'webmock', '~> 1.15.0'
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'rake'
   s.add_development_dependency 'simplecov'
+  s.add_development_dependency 'vcr'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
