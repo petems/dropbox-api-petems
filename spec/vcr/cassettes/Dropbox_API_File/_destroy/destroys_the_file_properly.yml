@@ -1,0 +1,109 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://api-content.dropbox.com/1/files_put/dropbox/qux.txt
+    body:
+      encoding: US-ASCII
+      string: spec file
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/octet-stream
+      Content-Length:
+      - '9'
+      Authorization:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 10 Feb 2014 18:24:54 GMT
+      Content-Type:
+      - text/javascript
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Server-Response-Time:
+      - '275'
+      X-Dropbox-Request-Id:
+      - b6e2f756f15712a3aeeb54d7bc0de465
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Requestid:
+      - f970243fa320c9f398daac341415c931
+    body:
+      encoding: US-ASCII
+      string: ! '{"revision": 28, "rev": "1c1f47d8b3", "thumb_exists": false, "bytes":
+        9, "modified": "Mon, 10 Feb 2014 18:24:50 +0000", "client_mtime": "Mon, 10
+        Feb 2014 18:24:50 +0000", "path": "/qux.txt", "is_dir": false, "icon": "page_white_text",
+        "root": "dropbox", "mime_type": "text/plain", "size": "9 bytes"}'
+    http_version: 
+  recorded_at: Mon, 10 Feb 2014 18:24:56 GMT
+- request:
+    method: post
+    uri: https://api.dropbox.com/1/fileops/delete?path=qux.txt&root=dropbox
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      Content-Length:
+      - '0'
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 10 Feb 2014 18:24:55 GMT
+      Content-Type:
+      - text/javascript
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - gvc=MzM0MjIyNDU3ODU1NDY5NjcxNTY4NTQ1OTA4NTY5NDU4MjAwNjk4; expires=Sat, 09
+        Feb 2019 18:24:55 GMT; Path=/; httponly
+      X-Server-Response-Time:
+      - '189'
+      X-Dropbox-Request-Id:
+      - 044bb9609095203d2a633e7648394a8d
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dropbox-Http-Protocol:
+      - None
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Requestid:
+      - c41a8ccac71e398eefa1325d298275c9
+    body:
+      encoding: US-ASCII
+      string: ! '{"is_deleted": true, "revision": 30, "rev": "1e1f47d8b3", "thumb_exists":
+        false, "bytes": 0, "modified": "Mon, 10 Feb 2014 18:24:55 +0000", "client_mtime":
+        "Wed, 31 Dec 1969 23:59:59 +0000", "path": "/qux.txt", "is_dir": false, "icon":
+        "page_white_text", "root": "dropbox", "mime_type": "text/plain", "size": "0
+        bytes"}'
+    http_version: 
+  recorded_at: Mon, 10 Feb 2014 18:24:57 GMT
+recorded_with: VCR 2.8.0

@@ -1,0 +1,174 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://api-content.dropbox.com/1/files_put/dropbox/qux.txt
+    body:
+      encoding: US-ASCII
+      string: spec file
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/octet-stream
+      Content-Length:
+      - '9'
+      Authorization:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 10 Feb 2014 18:28:29 GMT
+      Content-Type:
+      - text/javascript
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Server-Response-Time:
+      - '487'
+      X-Dropbox-Request-Id:
+      - 6939833914065c8b06a1d547db23a45b
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Requestid:
+      - a5e4eea28dd43131e78bb0e3b02d0fe6
+    body:
+      encoding: US-ASCII
+      string: ! '{"revision": 42, "rev": "2a1f47d8b3", "thumb_exists": false, "bytes":
+        9, "modified": "Mon, 10 Feb 2014 18:28:29 +0000", "client_mtime": "Mon, 10
+        Feb 2014 18:28:29 +0000", "path": "/qux.txt", "is_dir": false, "icon": "page_white_text",
+        "root": "dropbox", "mime_type": "text/plain", "size": "9 bytes"}'
+    http_version: 
+  recorded_at: Mon, 10 Feb 2014 18:28:31 GMT
+- request:
+    method: put
+    uri: https://api-content.dropbox.com/1/files_put/dropbox/qux.txt
+    body:
+      encoding: US-ASCII
+      string: Updated content
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/octet-stream
+      Content-Length:
+      - '15'
+      Authorization:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 10 Feb 2014 18:28:30 GMT
+      Content-Type:
+      - text/javascript
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Server-Response-Time:
+      - '445'
+      X-Dropbox-Request-Id:
+      - eece547faea69dce5076ecf97235eb0f
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Requestid:
+      - dcf5e6b800ec73c72cdfaf2f55410795
+    body:
+      encoding: US-ASCII
+      string: ! '{"revision": 43, "rev": "2b1f47d8b3", "thumb_exists": false, "bytes":
+        15, "modified": "Mon, 10 Feb 2014 18:28:30 +0000", "client_mtime": "Mon, 10
+        Feb 2014 18:28:30 +0000", "path": "/qux.txt", "is_dir": false, "icon": "page_white_text",
+        "root": "dropbox", "mime_type": "text/plain", "size": "15 bytes"}'
+    http_version: 
+  recorded_at: Mon, 10 Feb 2014 18:28:32 GMT
+- request:
+    method: get
+    uri: https://api.dropbox.com/1/revisions/dropbox/qux.txt
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "U2VydmVy":
+      - !binary |-
+        bmdpbng=
+      !binary "RGF0ZQ==":
+      - !binary |-
+        TW9uLCAxMCBGZWIgMjAxNCAxODoyODozMSBHTVQ=
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        dGV4dC9qYXZhc2NyaXB0
+      !binary "VHJhbnNmZXItRW5jb2Rpbmc=":
+      - !binary |-
+        Y2h1bmtlZA==
+      !binary "Q29ubmVjdGlvbg==":
+      - !binary |-
+        a2VlcC1hbGl2ZQ==
+      !binary "WC1TZXJ2ZXItUmVzcG9uc2UtVGltZQ==":
+      - !binary |-
+        Mzk=
+      !binary "WC1Ecm9wYm94LVJlcXVlc3QtSWQ=":
+      - !binary |-
+        MDlkN2IzY2Y1MTk1ZGUzZmI2NDM1ZWVhNWVlN2QxMGI=
+      !binary "UHJhZ21h":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "Q2FjaGUtQ29udHJvbA==":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "WC1Ecm9wYm94LUh0dHAtUHJvdG9jb2w=":
+      - !binary |-
+        Tm9uZQ==
+      !binary "WC1GcmFtZS1PcHRpb25z":
+      - !binary |-
+        U0FNRU9SSUdJTg==
+      !binary "WC1SZXF1ZXN0aWQ=":
+      - !binary |-
+        ZmI4MDdhY2NmYTUxZTBkM2M3ZDU1OTM4MGRjOTRlMDI=
+      !binary "Q29udGVudC1FbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA8WQQW6DMBBFr2KxLWqwISpwgOx6gqiy7HgoI2GM8DQlqXr3
+        eogq0V2yqlee///YM+/4lc1wxohhzFpRlbngOl0zZWVXvbjallkSqf/wVsOC
+        kWJyOzNESLK9EHAt96nwwWGH4Lj7NYy5kIU4gBWqkJWQdavqtizEU5EOP3ka
+        EEbSntDDnS2ToZ6jO2uuz7QQaxi1w3kzE57WXVL4HfRnjwSa4JadQyC23Bwm
+        GxaWfPpd02VaR+DcbhoMjmxFvK6q3Ivbnt+5+ItLbXCZB3A199FSzcO0ti3/
+        Q6v5hfX2A0JsiJtcAgAA
+    http_version: 
+  recorded_at: Mon, 10 Feb 2014 18:28:33 GMT
+recorded_with: VCR 2.8.0

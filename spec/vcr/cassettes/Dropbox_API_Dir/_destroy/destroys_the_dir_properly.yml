@@ -1,0 +1,112 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.dropbox.com/1/fileops/create_folder?path=dir-spec-tests&root=dropbox
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      Content-Length:
+      - '0'
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 10 Feb 2014 18:23:02 GMT
+      Content-Type:
+      - text/javascript
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - gvc=Mjg5NDA1NDU1Mjc4NjY2MjU0MTYxNDU2OTYwODg3MTQ1NzU1ODA5; expires=Sat, 09
+        Feb 2019 18:23:02 GMT; Path=/; httponly
+      X-Server-Response-Time:
+      - '158'
+      X-Dropbox-Request-Id:
+      - 124020f73041e828cd4529d62b806301
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dropbox-Http-Protocol:
+      - None
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Requestid:
+      - b9a6475b16a1f2cb0520d9af2d69de17
+    body:
+      encoding: US-ASCII
+      string: ! '{"revision": 26, "rev": "1a1f47d8b3", "thumb_exists": false, "bytes":
+        0, "modified": "Mon, 10 Feb 2014 18:23:02 +0000", "path": "/dir-spec-tests",
+        "is_dir": true, "icon": "folder", "root": "dropbox", "size": "0 bytes"}'
+    http_version: 
+  recorded_at: Mon, 10 Feb 2014 18:23:04 GMT
+- request:
+    method: post
+    uri: https://api.dropbox.com/1/fileops/delete?path=dir-spec-tests&root=dropbox
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      Content-Length:
+      - '0'
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 10 Feb 2014 18:23:03 GMT
+      Content-Type:
+      - text/javascript
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - gvc=MjIxNDI3NDQ0ODEyOTcxMjIyODgwMjU3OTQ4MDE1MzQ1MjkxNzc2; expires=Sat, 09
+        Feb 2019 18:23:03 GMT; Path=/; httponly
+      X-Server-Response-Time:
+      - '182'
+      X-Dropbox-Request-Id:
+      - 8ddf819fbb2a3fb504b2f74c913cc219
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dropbox-Http-Protocol:
+      - None
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Requestid:
+      - d8242638e4ba11e26aa3881dbc86d4dd
+    body:
+      encoding: US-ASCII
+      string: ! '{"is_deleted": true, "revision": 27, "rev": "1b1f47d8b3", "thumb_exists":
+        false, "bytes": 0, "modified": "Mon, 10 Feb 2014 18:23:03 +0000", "path":
+        "/dir-spec-tests", "is_dir": true, "icon": "folder_gray", "root": "dropbox",
+        "size": "0 bytes"}'
+    http_version: 
+  recorded_at: Mon, 10 Feb 2014 18:23:05 GMT
+recorded_with: VCR 2.8.0

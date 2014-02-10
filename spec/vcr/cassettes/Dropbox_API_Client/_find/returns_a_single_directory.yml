@@ -1,0 +1,76 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.dropbox.com/1/metadata/dropbox/awesome-tests
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "U2VydmVy":
+      - !binary |-
+        bmdpbng=
+      !binary "RGF0ZQ==":
+      - !binary |-
+        TW9uLCAxMCBGZWIgMjAxNCAxOTowNzo1NCBHTVQ=
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        dGV4dC9qYXZhc2NyaXB0
+      !binary "VHJhbnNmZXItRW5jb2Rpbmc=":
+      - !binary |-
+        Y2h1bmtlZA==
+      !binary "Q29ubmVjdGlvbg==":
+      - !binary |-
+        a2VlcC1hbGl2ZQ==
+      !binary "WC1TZXJ2ZXItUmVzcG9uc2UtVGltZQ==":
+      - !binary |-
+        NTY=
+      !binary "WC1Ecm9wYm94LVJlcXVlc3QtSWQ=":
+      - !binary |-
+        YjkxNjA2Yzc5YmQ0OGUxODhlYzYyNzcxY2JkZDBjYjA=
+      !binary "UHJhZ21h":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "Q2FjaGUtQ29udHJvbA==":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "WC1Ecm9wYm94LUh0dHAtUHJvdG9jb2w=":
+      - !binary |-
+        Tm9uZQ==
+      !binary "WC1GcmFtZS1PcHRpb25z":
+      - !binary |-
+        U0FNRU9SSUdJTg==
+      !binary "WC1SZXF1ZXN0aWQ=":
+      - !binary |-
+        NTI3OTJlM2I4NzdlMzBlOGVkMWI4ODFiM2M1NTU1YTM=
+      !binary "Q29udGVudC1FbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA72S326DIBjFX4V4O7sCSqs+wO72BMtiQD4miYoRurZr9u4D
+        GlObNGl7M6/gfH845xdPScttm1Qo2eKGi2KTlbyBgqkNLQsJlG4oZQ1TwJIU
+        JRN8a6vN4Pvp+RomKVH5VhYiCy2u3fWihoO2zvqi4p0FL4ujg3DH/twbqZUG
+        GWbfzZAigtEbCEQxyREpKkIqitEL9l/YOHIXDa75HqzpYeU3+d2+om0t9eRr
+        btqFR3QTrSXKdBKmaNgYFxQ5mVGYQ5B8j4Mhmvs4LRMxfImUPZOJ0Luhygpn
+        FSOXUE2nvYm6d7qHB0duc1hL6ByP55Xg06s7uCs0s9mZzci/oN632kHt4Nx7
+        A1LvbdXuOEZvoW89dlwPoWT1T1QJRWcAvym64phvF7+GeoJj+RjGnD2NcTly
+        H6My5v8wljPFz4WIZ/EPT/tdjp8DAAA=
+    http_version: 
+  recorded_at: Mon, 10 Feb 2014 19:07:54 GMT
+recorded_with: VCR 2.8.0

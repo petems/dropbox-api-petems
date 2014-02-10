@@ -1,15 +1,11 @@
 require "spec_helper"
 
-describe Dropbox::API::Dir do
+describe Dropbox::API::Dir, vcr: true do
 
   before do
     @client = Dropbox::Spec.instance
-    @dirname = "#{Dropbox::Spec.test_dir}/spec-dir-test-#{Time.now.to_i}"
+    @dirname = "dir-spec-tests"
     @dir = @client.mkdir @dirname
-  end
-
-  after do
-    # @dir.delete
   end
 
   describe "#copy" do

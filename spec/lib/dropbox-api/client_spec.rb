@@ -28,17 +28,15 @@ describe Dropbox::API::Client, vcr: true do
   describe "#find" do
 
     it "returns a single file" do
-      pending
-      # response = @client.find(@filename)
-      # response.path.should == @file.path
-      # response.should be_an_instance_of(Dropbox::API::File)
+      response = @client.find('baz.txt')
+      response.path.should == 'baz.txt'
+      response.should be_an_instance_of(Dropbox::API::File)
     end
 
     it "returns a single directory" do
-      pending
-      # response = @client.find(@dirname)
-      # response.path.should == @dir.path
-      # response.should be_an_instance_of(Dropbox::API::Dir)
+      response = @client.find('awesome-tests')
+      response.path.should == 'awesome-tests'
+      response.should be_an_instance_of(Dropbox::API::Dir)
     end
 
   end
@@ -162,15 +160,14 @@ describe Dropbox::API::Client, vcr: true do
   describe "#copy_from_copy_ref" do
 
     it "copies a file from a copy_ref" do
-      pending
-      # filename = "test/searchable-test-#{Dropbox::Spec.namespace}.txt"
-      # @client.upload filename, "Some file"
-      # response = @client.search "searchable-test-#{Dropbox::Spec.namespace}", :path => 'test'
-      # ref = response.first.copy_ref['copy_ref']
-      # @client.copy_from_copy_ref ref, "#{filename}.copied"
-      # response = @client.search "searchable-test-#{Dropbox::Spec.namespace}.txt.copied", :path => 'test'
-      # response.size.should == 1
-      # response.first.class.should == Dropbox::API::File
+      filename = "test/searchable-test-100.txt"
+      @client.upload filename, "Some file"
+      response = @client.search "searchable-test-100", :path => 'test'
+      ref = response.first.copy_ref['copy_ref']
+      @client.copy_from_copy_ref ref, "#{filename}.copied"
+      response = @client.search "searchable-test-100.txt.copied", :path => 'test'
+      response.size.should == 1
+      response.first.class.should == Dropbox::API::File
     end
 
   end
@@ -194,32 +191,30 @@ describe Dropbox::API::Client, vcr: true do
 
   describe "#delta" do
     it "returns a cursor and list of files" do
-      pending
-      # filename = "#{Dropbox::Spec.test_dir}/delta-test-#{Dropbox::Spec.namespace}.txt"
-      # @client.upload filename, 'Some file'
-      # response = @client.delta
-      # cursor, files = response.cursor, response.entries
-      # cursor.should be_an_instance_of(String)
-      # files.should be_an_instance_of(Array)
-      # files.last.should be_an_instance_of(Dropbox::API::File)
+      filename = "awesome-tests/delta-test-foo.txt"
+      @client.upload filename, 'Some file'
+      response = @client.delta
+      cursor, files = response.cursor, response.entries
+      cursor.should be_an_instance_of(String)
+      files.should be_an_instance_of(Array)
+      files.last.should be_an_instance_of(Dropbox::API::File)
     end
 
     it "returns the files that have changed since the cursor was made" do
-      pending
-      # filename = "#{Dropbox::Spec.test_dir}/delta-test-#{Dropbox::Spec.namespace}.txt"
-      # delete_filename = "#{Dropbox::Spec.test_dir}/delta-test-delete-#{Dropbox::Spec.namespace}.txt"
-      # @client.upload delete_filename, 'Some file'
-      # response = @client.delta
-      # cursor, files = response.cursor, response.entries
-      # files.last.path.should == delete_filename
-      # files.last.destroy
-      # @client.upload filename, 'Another file'
-      # response = @client.delta(cursor)
-      # cursor, files = response.cursor, response.entries
-      # files.length.should == 2
-      # files.first.is_deleted.should == true
-      # files.first.path.should == delete_filename
-      # files.last.path.should == filename
+      filename = "awesome-tests/delta-test-bar.txt"
+      delete_filename = "awesome-tests/delta-test-baz.txt"
+      @client.upload delete_filename, 'Some file'
+      response = @client.delta
+      cursor, files = response.cursor, response.entries
+      files.last.path.should == delete_filename
+      files.last.destroy
+      @client.upload filename, 'Another file'
+      response = @client.delta(cursor)
+      cursor, files = response.cursor, response.entries
+      files.length.should == 2
+      files.first.is_deleted.should == true
+      files.first.path.should == delete_filename
+      files.last.path.should == filename
     end
   end
 

@@ -1,0 +1,107 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://api-content.dropbox.com/1/files_put/dropbox/qux.txt
+    body:
+      encoding: US-ASCII
+      string: spec file
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/octet-stream
+      Content-Length:
+      - '9'
+      Authorization:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 10 Feb 2014 18:25:11 GMT
+      Content-Type:
+      - text/javascript
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Server-Response-Time:
+      - '290'
+      X-Dropbox-Request-Id:
+      - d519fc8418ca515d3cf6b109246f1895
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Requestid:
+      - 21e1393586933f6bdb4b5d8d013eda20
+    body:
+      encoding: US-ASCII
+      string: ! '{"revision": 35, "rev": "231f47d8b3", "thumb_exists": false, "bytes":
+        9, "modified": "Mon, 10 Feb 2014 18:25:03 +0000", "client_mtime": "Mon, 10
+        Feb 2014 18:24:59 +0000", "path": "/qux.txt", "is_dir": false, "icon": "page_white_text",
+        "root": "dropbox", "mime_type": "text/plain", "size": "9 bytes"}'
+    http_version: 
+  recorded_at: Mon, 10 Feb 2014 18:25:13 GMT
+- request:
+    method: get
+    uri: https://api-content.dropbox.com/1/files/dropbox/qux.txt
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 10 Feb 2014 18:25:12 GMT
+      Content-Type:
+      - text/plain; charset=ascii
+      Content-Length:
+      - '9'
+      Connection:
+      - keep-alive
+      Accept-Ranges:
+      - bytes
+      X-Dropbox-Metadata:
+      - ! '{"revision": 35, "rev": "231f47d8b3", "thumb_exists": false, "bytes": 9,
+        "modified": "Mon, 10 Feb 2014 18:25:03 +0000", "client_mtime": "Mon, 10 Feb
+        2014 18:24:59 +0000", "path": "/qux.txt", "is_dir": false, "icon": "page_white_text",
+        "root": "dropbox", "mime_type": "text/plain", "size": "9 bytes"}'
+      X-Server-Response-Time:
+      - '320'
+      Etag:
+      - 35n
+      X-Dropbox-Request-Id:
+      - 4f217aa9305757e726115dc33efbff68
+      Pragma:
+      - public
+      Cache-Control:
+      - max-age=0
+      X-Requestid:
+      - b7763ef09d958f67b083722c3da196b5
+    body:
+      encoding: US-ASCII
+      string: spec file
+    http_version: 
+  recorded_at: Mon, 10 Feb 2014 18:25:14 GMT
+recorded_with: VCR 2.8.0

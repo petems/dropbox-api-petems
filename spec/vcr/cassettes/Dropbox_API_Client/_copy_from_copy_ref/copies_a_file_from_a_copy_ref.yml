@@ -1,0 +1,319 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://api-content.dropbox.com/1/files_put/dropbox/test/searchable-test-100.txt
+    body:
+      encoding: UTF-8
+      string: Some file
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Content-Type:
+      - application/octet-stream
+      Content-Length:
+      - '9'
+      Authorization:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 10 Feb 2014 19:06:53 GMT
+      Content-Type:
+      - text/javascript
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Server-Response-Time:
+      - '419'
+      X-Dropbox-Request-Id:
+      - 2459faf5573c286b11cde9e4b904c152
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Requestid:
+      - 95a12c588c1e9cb897d672bee32b1ad1
+    body:
+      encoding: US-ASCII
+      string: ! '{"revision": 51, "rev": "331f47d8b3", "thumb_exists": false, "bytes":
+        9, "modified": "Mon, 10 Feb 2014 19:06:53 +0000", "client_mtime": "Mon, 10
+        Feb 2014 19:06:53 +0000", "path": "/test/searchable-test-100.txt", "is_dir":
+        false, "icon": "page_white_text", "root": "dropbox", "mime_type": "text/plain",
+        "size": "9 bytes"}'
+    http_version: 
+  recorded_at: Mon, 10 Feb 2014 19:06:53 GMT
+- request:
+    method: get
+    uri: https://api.dropbox.com/1/search/dropbox/test?query=searchable-test-100
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "U2VydmVy":
+      - !binary |-
+        bmdpbng=
+      !binary "RGF0ZQ==":
+      - !binary |-
+        TW9uLCAxMCBGZWIgMjAxNCAxOTowNjo1NCBHTVQ=
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        dGV4dC9qYXZhc2NyaXB0
+      !binary "VHJhbnNmZXItRW5jb2Rpbmc=":
+      - !binary |-
+        Y2h1bmtlZA==
+      !binary "Q29ubmVjdGlvbg==":
+      - !binary |-
+        a2VlcC1hbGl2ZQ==
+      !binary "WC1TZXJ2ZXItUmVzcG9uc2UtVGltZQ==":
+      - !binary |-
+        NDY=
+      !binary "WC1Ecm9wYm94LVJlcXVlc3QtSWQ=":
+      - !binary |-
+        NzEwOGI5OWY1MmQxOWUwMzIzZWQzOGE3Mjk5Yjg3NjE=
+      !binary "UHJhZ21h":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "Q2FjaGUtQ29udHJvbA==":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "WC1Ecm9wYm94LUh0dHAtUHJvdG9jb2w=":
+      - !binary |-
+        Tm9uZQ==
+      !binary "WC1GcmFtZS1PcHRpb25z":
+      - !binary |-
+        U0FNRU9SSUdJTg==
+      !binary "WC1SZXF1ZXN0aWQ=":
+      - !binary |-
+        OTdiNjgzODU4MjM2Nzc1YzQ4ZWY3ZjVjYTIyZjlhNjc=
+      !binary "Q29udGVudC1FbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA41PzU7DMAx+lahXtjWhG9A+ADeeAKEoaVxqqWmqxGwdiHfH
+        7i4c55O/H9uf33+qDGcsmOaqUyezU4K5rZrGDMfn8OKbikkav6K3sGKhwurg
+        pgJM+yuB4Jb7mAIOCEGG39K8U0arV/DqUZujMm2nn7pTox40l2zsJ4SZbCSM
+        cOfI4mgUa81HqS7gcj86P8Fe8N5ofaCVxIjFBsz/cmK//ccbPsFeRiSwBDdv
+        TolECjktPq1CRY5k6bpsucRXL5PDWaSC3xvbqtvrvx9/Hv6B1UIBAAA=
+    http_version: 
+  recorded_at: Mon, 10 Feb 2014 19:06:54 GMT
+- request:
+    method: get
+    uri: https://api.dropbox.com/1/copy_ref/dropbox/test/searchable-test-100.txt
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "U2VydmVy":
+      - !binary |-
+        bmdpbng=
+      !binary "RGF0ZQ==":
+      - !binary |-
+        TW9uLCAxMCBGZWIgMjAxNCAxOTowNjo1NSBHTVQ=
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        dGV4dC9qYXZhc2NyaXB0
+      !binary "VHJhbnNmZXItRW5jb2Rpbmc=":
+      - !binary |-
+        Y2h1bmtlZA==
+      !binary "Q29ubmVjdGlvbg==":
+      - !binary |-
+        a2VlcC1hbGl2ZQ==
+      !binary "WC1TZXJ2ZXItUmVzcG9uc2UtVGltZQ==":
+      - !binary |-
+        NDM=
+      !binary "WC1Ecm9wYm94LVJlcXVlc3QtSWQ=":
+      - !binary |-
+        ZDg0YjE0ZTkxZGQzNmFhMjU1MzRlODc4OTIyMjNlYmE=
+      !binary "UHJhZ21h":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "Q2FjaGUtQ29udHJvbA==":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "WC1Ecm9wYm94LUh0dHAtUHJvdG9jb2w=":
+      - !binary |-
+        Tm9uZQ==
+      !binary "WC1GcmFtZS1PcHRpb25z":
+      - !binary |-
+        U0FNRU9SSUdJTg==
+      !binary "WC1SZXF1ZXN0aWQ=":
+      - !binary |-
+        ZThiNzE1NTJjYTgwN2VmMzk2NGVhNGQxMmMxMGM4Mzc=
+      !binary "Q29udGVudC1FbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA6tWSq0oyCxKLVayUlAKT03RUTAwVnBLTVIwMjAxUTC0tDIw
+        szI1VdA2AAIlHQWl5PyCyvii1DSQcg+DtMjiqijjqJDIqqisSMPkPKes5ECl
+        WgBsvCC1VAAAAA==
+    http_version: 
+  recorded_at: Mon, 10 Feb 2014 19:06:55 GMT
+- request:
+    method: post
+    uri: https://api.dropbox.com/1/fileops/copy?from_copy_ref=H0fYszZ3ZTYzZjY1cnBjcQ&root=dropbox&to_path=test/searchable-test-100.txt.copied
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      Content-Length:
+      - '0'
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 10 Feb 2014 19:06:56 GMT
+      Content-Type:
+      - text/javascript
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - gvc=OTQzNzgzNjIwNTE2NzE5MDg0MjI2MzYwNjI1MTYyMTUxNDM3NjQ%3D; expires=Sat, 09
+        Feb 2019 19:06:56 GMT; Path=/; httponly
+      X-Server-Response-Time:
+      - '232'
+      X-Dropbox-Request-Id:
+      - 5d1780c29af1e41835ee47d1c4629c27
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dropbox-Http-Protocol:
+      - None
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Requestid:
+      - 939b1327f6c3fcd4941b76058c50d025
+    body:
+      encoding: US-ASCII
+      string: ! '{"revision": 53, "rev": "351f47d8b3", "thumb_exists": false, "bytes":
+        9, "modified": "Mon, 10 Feb 2014 19:06:56 +0000", "client_mtime": "Mon, 10
+        Feb 2014 19:06:53 +0000", "path": "/test/searchable-test-100.txt.copied",
+        "is_dir": false, "icon": "page_white", "root": "dropbox", "mime_type": "application/octet-stream",
+        "size": "9 bytes"}'
+    http_version: 
+  recorded_at: Mon, 10 Feb 2014 19:06:56 GMT
+- request:
+    method: get
+    uri: https://api.dropbox.com/1/search/dropbox/test?query=searchable-test-100.txt.copied
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "U2VydmVy":
+      - !binary |-
+        bmdpbng=
+      !binary "RGF0ZQ==":
+      - !binary |-
+        TW9uLCAxMCBGZWIgMjAxNCAxOTowNjo1NyBHTVQ=
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        dGV4dC9qYXZhc2NyaXB0
+      !binary "VHJhbnNmZXItRW5jb2Rpbmc=":
+      - !binary |-
+        Y2h1bmtlZA==
+      !binary "Q29ubmVjdGlvbg==":
+      - !binary |-
+        a2VlcC1hbGl2ZQ==
+      !binary "WC1TZXJ2ZXItUmVzcG9uc2UtVGltZQ==":
+      - !binary |-
+        NDQ=
+      !binary "WC1Ecm9wYm94LVJlcXVlc3QtSWQ=":
+      - !binary |-
+        NDQyYTlkZmIwNmQwZTAzYTc3ZTRhMTRhNDcxOTU3OWM=
+      !binary "UHJhZ21h":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "Q2FjaGUtQ29udHJvbA==":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "WC1Ecm9wYm94LUh0dHAtUHJvdG9jb2w=":
+      - !binary |-
+        Tm9uZQ==
+      !binary "WC1GcmFtZS1PcHRpb25z":
+      - !binary |-
+        U0FNRU9SSUdJTg==
+      !binary "WC1SZXF1ZXN0aWQ=":
+      - !binary |-
+        MDU4ZmM0MDhhZGQ1NmFkMzg2Nzg3NDhjNmRmZDVlYjU=
+      !binary "Q29udGVudC1FbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA31QQU7EMAz8StQr221KtwvtA7jtCxCqktSllpomSrzQBfF3
+        7HKAEz55xjPOxM+fRYI3zBjWoldtc1CCuS2atp5OD+OjbQomab56O8CGmTJP
+        J7NkYNreCAR33Psw4oQwivkS1oOqtXoCq+51fVJ11+tz357VneaSjW5BWGnw
+        hB7+szS/lmhoFmnFj1KVwSQ3G7tAKbistT7SRkcXoqRgPeZhxPQnLrr9m7zo
+        FYb3GQlElkIgYccUog2bUJ5DDXSLezIT44LOEN+oCo6AykwJjBdhxo9d06mf
+        U3y9fAP8/ufOUgEAAA==
+    http_version: 
+  recorded_at: Mon, 10 Feb 2014 19:06:57 GMT
+recorded_with: VCR 2.8.0
