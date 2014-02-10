@@ -2,10 +2,9 @@
 require "spec_helper"
 require "tempfile"
 
-describe Dropbox::API::Client do
+describe Dropbox::API::Client, vcr: true do
 
   before do
-    # pending
     @client = Dropbox::Spec.instance
   end
 
@@ -18,7 +17,8 @@ describe Dropbox::API::Client do
   end
 
   describe "#account" do
-
+    use_vcr_cassette
+    
     it "retrieves the account object" do
       response = @client.account
       response.should be_an_instance_of(Dropbox::API::Object)
@@ -52,16 +52,25 @@ describe Dropbox::API::Client do
 
   describe "#ls" do
 
-    it "returns an array of files and dirs" do
-      result = @client.ls
-      result.should be_an_instance_of(Array)
+    context "a directory" do
+      use_vcr_cassette
+
+      it "returns an array of files and dirs" do
+        result = @client.ls
+        result.should be_an_instance_of(Array)
+      end
     end
 
-    it "returns a single item array of if we ls a file" do
-      result     = @client.ls(Dropbox::Spec.test_dir)
-      first_file = result.detect { |f| f.class == Dropbox::API::File }
-      result     = @client.ls first_file.path
-      result.should be_an_instance_of(Array)
+    context "a single file" do
+      use_vcr_cassette
+
+      it "returns a single item array of if we ls a file" do
+        result     = @client.ls('foo.txt')
+        first_file = result.detect { |f| f.class == Dropbox::API::File }
+        result     = @client.ls first_file.path
+        result.should be_an_instance_of(Array)
+      end
+
     end
 
   end
@@ -93,48 +102,77 @@ describe Dropbox::API::Client do
 
   describe "#upload" do
 
-    it "puts the file in dropbox" do
-      filename = "#{Dropbox::Spec.test_dir}/test-#{Dropbox::Spec.namespace}.txt"
-      response = @client.upload filename, "Some file"
-      response.path.should == filename
-      response.bytes.should == 9
+    context "a simple file" do
+      use_vcr_cassette
+
+      it "puts the file in dropbox" do
+        filename = "#{Dropbox::Spec.test_dir}/test-#{Dropbox::Spec.namespace}.txt"
+        response = @client.upload filename, "Some file"
+        response.path.should == filename
+        response.bytes.should == 9
+      end
+
     end
 
-    it "uploads the file with tricky characters" do
-      filename = "#{Dropbox::Spec.test_dir}/test ,|!@\#$%^&*{b}[].;'.,<>?:-#{Dropbox::Spec.namespace}.txt"
-      response = @client.upload filename, "Some file"
-      response.path.should == filename
-      response.bytes.should == 9
+    context "a file with tricky characters" do
+      use_vcr_cassette
+
+      it "puts the file in dropbox" do
+        filename = "#{Dropbox::Spec.test_dir}/test ,|!@\#$%^&*{b}[].;'.,<>?:-#{Dropbox::Spec.namespace}.txt"
+        response = @client.upload filename, "Some file"
+        response.path.should == filename
+        response.bytes.should == 9
+      end
+      
     end
 
-    it "uploads the file with utf8" do
-      filename = "#{Dropbox::Spec.test_dir}/test łołąó-#{Dropbox::Spec.namespace}.txt"
-      response = @client.upload filename, "Some file"
-      response.path.should == filename
-      response.bytes.should == 9
+    context "a file with utf8" do
+      use_vcr_cassette
+
+      it "puts the file in dropbox" do
+        filename = "#{Dropbox::Spec.test_dir}/test łołąó-#{Dropbox::Spec.namespace}.txt"
+        response = @client.upload filename, "Some file"
+        response.path.should == filename
+        response.bytes.should == 9
+      end
+      
     end
+
   end
 
   describe "#search" do
 
-    let(:term) { "searchable-test-#{Dropbox::Spec.namespace}" }
-
-    before do
-      filename = "#{Dropbox::Spec.test_dir}/searchable-test-#{Dropbox::Spec.namespace}.txt"
-      @client.upload filename, "Some file"
-    end
+    let(:term) { "foo.png" }
 
     after do
       @response.size.should == 1
       @response.first.class.should == Dropbox::API::File
     end
 
-    it "finds a file" do
-      @response = @client.search term, :path => "#{Dropbox::Spec.test_dir}"
+    context "basic path" do
+      use_vcr_cassette
+
+      it "finds a file" do 
+        @response = @client.search term, :path => "awesome-tests"
+      end
     end
 
-    it "works if leading slash is present in path" do
-      @response = @client.search term, :path => "/#{Dropbox::Spec.test_dir}"
+    context "path with leading slash" do
+      use_vcr_cassette
+
+      it "works if leading slash is present in path" do
+        @response = @client.search term, :path => "/awesome-tests"
+      end
+
+    end
+
+    context "no path given" do
+      use_vcr_cassette
+
+      it "works if leading slash is present in path" do
+        @response = @client.search term
+      end
+
     end
 
   end
@@ -156,18 +194,22 @@ describe Dropbox::API::Client do
 
   describe "#download" do
 
-    it "downloads a file from Dropbox" do
-      @client.upload "#{Dropbox::Spec.test_dir}/test.txt", "Some file"
-      file = @client.download "#{Dropbox::Spec.test_dir}/test.txt"
-      file.should == "Some file"
+    context "a file" do
+      use_vcr_cassette
+
+      it "downloads a file from Dropbox" do
+        file = @client.download "awesome-tests/foo.txt"
+        file.should == "Some file"
+      end
     end
 
-    it "raises a 404 when a file is not found in Dropbox" do
-      lambda {
-        @client.download "#{Dropbox::Spec.test_dir}/no.txt"
-      }.should raise_error(Dropbox::API::Error::NotFound)
-    end
+    context "a non-existant file" do
+      use_vcr_cassette
+      it "raises a 404 when a file is not found in Dropbox" do
+        expect { @client.download "awesome-tests/no.txt"}.to raise_error(Dropbox::API::Error::NotFound)
+      end
 
+    end
   end
 
   describe "#delta" do

@@ -1,4 +1,4 @@
-Dropbox::API - Dropbox Ruby API client (PeteMS fork...)
+Dropbox::API - Dropbox Ruby API client
 =========
 
 A Ruby client for the DropBox REST API.
