@@ -1,0 +1,81 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.dropbox.com/1/metadata/dropbox/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "U2VydmVy":
+      - !binary |-
+        bmdpbng=
+      !binary "RGF0ZQ==":
+      - !binary |-
+        TW9uLCAxMCBGZWIgMjAxNCAxODoxNDozNSBHTVQ=
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        dGV4dC9qYXZhc2NyaXB0
+      !binary "VHJhbnNmZXItRW5jb2Rpbmc=":
+      - !binary |-
+        Y2h1bmtlZA==
+      !binary "Q29ubmVjdGlvbg==":
+      - !binary |-
+        a2VlcC1hbGl2ZQ==
+      !binary "WC1TZXJ2ZXItUmVzcG9uc2UtVGltZQ==":
+      - !binary |-
+        NTI=
+      !binary "WC1Ecm9wYm94LVJlcXVlc3QtSWQ=":
+      - !binary |-
+        YjJkMzgxMDkzMjlhYTdlZTE2Njk0ZDQwNDg3ZGQzMzQ=
+      !binary "UHJhZ21h":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "Q2FjaGUtQ29udHJvbA==":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "WC1Ecm9wYm94LUh0dHAtUHJvdG9jb2w=":
+      - !binary |-
+        Tm9uZQ==
+      !binary "WC1GcmFtZS1PcHRpb25z":
+      - !binary |-
+        U0FNRU9SSUdJTg==
+      !binary "WC1SZXF1ZXN0aWQ=":
+      - !binary |-
+        MzUyZWY1MDE0ZDkwYWY3NjNhMDdhNDc0YjQ4Y2Y1NTM=
+      !binary "Q29udGVudC1FbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA82WXW+bMBiF/4rHvqQtH7YxJLBpm3axXVS92mXXIRubxlLA
+        CJw2bZb/PjtpAiyJEqSihIsIO+/BPg/HNgtnQsuJEwKHJYghITzoM4I4TZIx
+        xQzFgiLEXc/znR5w9GSWskjMZalLo0notBSmmz1qYdvQ3OdUrx43tPWyjLgs
+        TFMXM1tYyidh/4RgLTFdhVLadvFC5UzNbVesMi2y1Qg3C6cQ97KUKjMtbOvF
+        vS3HKCEjPmbuidNKFZeJFNxqr1XWAwiCH4IBDBEBaBwiFGIIPkJzOXUX9EGU
+        KhV98yRd7rMk49XUnERNuSgOOPrf97IHGsbcypjbgTF0zFj/1bfXb97+ebdg
+        y5vbwaf3g15nVklllXRgFR+1+ntmyrH5hYm7vUfQ68wxqr1d3sJycIplEqKa
+        5XgqzcKJUi1TcVCC9wciUWqg57qBYTOlDYec3onoYSK1iLRY1+4BkprRI/2Y
+        r6Zg64b5lMqszio4xKpChVqgwiRA3nFeo5D4IRm34bUj2fL6KbSW2R34pWmh
+        BR/kPDmVHY0LxehJ+GieT2VMtcEzfB5hwxATd+CCq+87EP0Kov/SeTNLzGuZ
+        t6Zky8+uRtD7+7zzfKi2ns9fvoZ95AYYet545F9AKGEFlL78AoZuS6BNyWlA
+        z09xVEEcdZBKv30q/UMQ18eCqp8O6/PismJZ2yxZB7Ek7WNJWhM9P0avouh1
+        kMu2FJuSBsWLSl9QYQs6CF/bj5qmpIHtDKxud78dl/8AJBWeGGoNAAA=
+    http_version: 
+  recorded_at: Mon, 10 Feb 2014 18:14:37 GMT
+recorded_with: VCR 2.8.0

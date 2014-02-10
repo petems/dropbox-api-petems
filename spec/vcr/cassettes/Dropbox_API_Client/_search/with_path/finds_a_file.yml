@@ -1,0 +1,73 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.dropbox.com/1/search/dropbox/awesome-tests?query=foo.txt
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "U2VydmVy":
+      - !binary |-
+        bmdpbng=
+      !binary "RGF0ZQ==":
+      - !binary |-
+        TW9uLCAxMCBGZWIgMjAxNCAxODoxNTowMCBHTVQ=
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        dGV4dC9qYXZhc2NyaXB0
+      !binary "VHJhbnNmZXItRW5jb2Rpbmc=":
+      - !binary |-
+        Y2h1bmtlZA==
+      !binary "Q29ubmVjdGlvbg==":
+      - !binary |-
+        a2VlcC1hbGl2ZQ==
+      !binary "WC1TZXJ2ZXItUmVzcG9uc2UtVGltZQ==":
+      - !binary |-
+        NDI=
+      !binary "WC1Ecm9wYm94LVJlcXVlc3QtSWQ=":
+      - !binary |-
+        MjIzODhiMjljZTUzNGIzZTU0YmQxNGM5ZDA0NzM1YzY=
+      !binary "UHJhZ21h":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "Q2FjaGUtQ29udHJvbA==":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "WC1Ecm9wYm94LUh0dHAtUHJvdG9jb2w=":
+      - !binary |-
+        Tm9uZQ==
+      !binary "WC1GcmFtZS1PcHRpb25z":
+      - !binary |-
+        U0FNRU9SSUdJTg==
+      !binary "WC1SZXF1ZXN0aWQ=":
+      - !binary |-
+        OTc4NmU2NGYzOGZmNTg5ZDc4MDBlMWI0MTExOTA0NTU=
+      !binary "Q29udGVudC1FbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA3VPS27CQAy9yijb0iYTIhVyAHacAKFRhnEaS5k4yhgIrbg7
+        dliUDV7Z72M/H/6yCS6YkIasNrZaGZ2lzcC21XfY+HUmGHfn6B3MmDgJ2TZ9
+        AoH9jUHnrfSRArYIQb17GlbGFmYH3pSFrYzd1Laq14X5KKR046lHGNhFxghv
+        LWVd2n/L2HCn0ry5QqIIn3KcU94SffHMqsDkAk4vAfG0/CXWH3DXDhkcw1M7
+        EbFSYaLR06xQlCyOb+MSSHX52Dc4KJXwd0G35vnz/fgA0JZ4OjoBAAA=
+    http_version: 
+  recorded_at: Mon, 10 Feb 2014 18:15:02 GMT
+recorded_with: VCR 2.8.0

@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.dropbox.com/1/fileops/create_folder?path=awesome-tests-!@%23$%25%5E%26%7Bb%7D%5B%5D.%3B'.,&root=dropbox
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      Content-Length:
+      - '0'
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 10 Feb 2014 18:11:21 GMT
+      Content-Type:
+      - text/javascript
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - gvc=MzI3NzUyNDA3ODYzODMwMDUzNjQwNjU3NDI0ODM3MjE2NTgzOTc0; expires=Sat, 09
+        Feb 2019 18:11:21 GMT; Path=/; httponly
+      X-Server-Response-Time:
+      - '145'
+      X-Dropbox-Request-Id:
+      - 5197998f45a6ff656e30a4ddcc10911d
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dropbox-Http-Protocol:
+      - None
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Requestid:
+      - b84970e60f76ff8c48d3433e757829b0
+    body:
+      encoding: US-ASCII
+      string: ! '{"revision": 3, "rev": "31f47d8b3", "thumb_exists": false, "bytes":
+        0, "modified": "Mon, 10 Feb 2014 18:11:21 +0000", "path": "/awesome-tests-!@#$%^&{b}[].;''.,",
+        "is_dir": true, "icon": "folder", "root": "dropbox", "size": "0 bytes"}'
+    http_version: 
+  recorded_at: Mon, 10 Feb 2014 18:11:23 GMT
+recorded_with: VCR 2.8.0
