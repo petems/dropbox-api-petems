@@ -1,58 +1,8 @@
 ---
 http_interactions:
 - request:
-    method: put
-    uri: https://api-content.dropbox.com/1/files_put/dropbox/qux.txt
-    body:
-      encoding: US-ASCII
-      string: spec file
-    headers:
-      User-Agent:
-      - Faraday v0.8.9
-      Content-Type:
-      - application/octet-stream
-      Content-Length:
-      - '9'
-      Authorization:
-      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-      Accept:
-      - ! '*/*'
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - nginx
-      Date:
-      - Mon, 10 Feb 2014 19:17:54 GMT
-      Content-Type:
-      - text/javascript
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      X-Server-Response-Time:
-      - '378'
-      X-Dropbox-Request-Id:
-      - 202cb6de2d053d03b3aee4f3c075062d
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache
-      X-Requestid:
-      - b5e823c7aca27383accd1641739f4693
-    body:
-      encoding: US-ASCII
-      string: ! '{"revision": 55, "rev": "371f47d8b3", "thumb_exists": false, "bytes":
-        9, "modified": "Mon, 10 Feb 2014 19:16:34 +0000", "client_mtime": "Mon, 10
-        Feb 2014 19:16:34 +0000", "path": "/qux.txt", "is_dir": false, "icon": "page_white_text",
-        "root": "dropbox", "mime_type": "text/plain", "size": "9 bytes"}'
-    http_version: 
-  recorded_at: Mon, 10 Feb 2014 19:17:55 GMT
-- request:
     method: post
-    uri: https://api.dropbox.com/1/media/dropbox/qux.txt
+    uri: https://api.dropbox.com/1/fileops/create_folder?path=dir-spec-tests&root=dropbox
     body:
       encoding: US-ASCII
       string: ''
@@ -73,17 +23,20 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Mon, 10 Feb 2014 19:17:55 GMT
+      - Mon, 10 Feb 2014 19:18:30 GMT
       Content-Type:
       - text/javascript
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
+      Set-Cookie:
+      - gvc=MTMyNTU5NjAyNDkzMjcyMDE4MjU4ODkyMDc5NjI5MzQ3NDMyNjQ4; expires=Sat, 09
+        Feb 2019 19:18:30 GMT; Path=/; httponly
       X-Server-Response-Time:
-      - '56'
+      - '142'
       X-Dropbox-Request-Id:
-      - 2e4d42fcfbbf5140f42871af2174edaf
+      - 3439413e5b98e72d21e2ed12c9c78dd5
       Pragma:
       - no-cache
       Cache-Control:
@@ -93,11 +46,62 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Requestid:
-      - c39175203686802b97492797ba0222e8
+      - 6113e4c8a4e36f3cd278457cc032efb0
     body:
       encoding: US-ASCII
-      string: ! '{"url": "https://dl.dropboxusercontent.com/1/view/nx00e9hb9jdyf9a/qux.txt",
-        "expires": "Mon, 10 Feb 2014 23:17:55 +0000"}'
+      string: ! '{"revision": 57, "rev": "391f47d8b3", "thumb_exists": false, "bytes":
+        0, "modified": "Mon, 10 Feb 2014 19:18:29 +0000", "path": "/dir-spec-tests",
+        "is_dir": true, "icon": "folder", "root": "dropbox", "size": "0 bytes"}'
     http_version: 
-  recorded_at: Mon, 10 Feb 2014 19:17:56 GMT
+  recorded_at: Mon, 10 Feb 2014 19:18:30 GMT
+- request:
+    method: post
+    uri: https://api.dropbox.com/1/shares/dropbox/dir-spec-tests?short_url=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      Content-Length:
+      - '0'
+      Accept:
+      - ! '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 10 Feb 2014 19:18:31 GMT
+      Content-Type:
+      - text/javascript
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Server-Response-Time:
+      - '74'
+      X-Dropbox-Request-Id:
+      - 6e139d48d765a58c9a8c44f82221e618
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dropbox-Http-Protocol:
+      - None
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Requestid:
+      - db4e1f5f17d4de6af508ad5111f5a859
+    body:
+      encoding: US-ASCII
+      string: ! '{"url": "https://www.dropbox.com/sh/y2wx4tpk9co1uqg/7wFKjUC2ep",
+        "expires": "Tue, 01 Jan 2030 00:00:00 +0000"}'
+    http_version: 
+  recorded_at: Mon, 10 Feb 2014 19:18:31 GMT
 recorded_with: VCR 2.8.0

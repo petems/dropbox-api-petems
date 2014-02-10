@@ -37,4 +37,14 @@ describe Dropbox::API::Dir, vcr: true do
 
   end
 
+  describe "#direct_url" do
+
+    it "gives the direct url" do
+      direct_url_object = @dir.direct_url
+      direct_url_object.url.should eql 'https://www.dropbox.com/sh/y2wx4tpk9co1uqg/7wFKjUC2ep'
+      direct_url_object.expires.should eql 'Tue, 01 Jan 2030 00:00:00 +0000'
+    end
+
+  end
+
 end
