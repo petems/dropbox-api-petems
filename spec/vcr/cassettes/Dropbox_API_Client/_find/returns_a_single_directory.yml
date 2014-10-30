@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.dropbox.com/1/metadata/dropbox/awesome-tests
+    uri: https://api.dropbox.com/1/metadata/dropbox/awesome-tests?list=false
     body:
       encoding: US-ASCII
       string: ''

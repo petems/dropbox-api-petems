@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.dropbox.com/1/metadata/dropbox/baz.txt
+    uri: https://api.dropbox.com/1/metadata/dropbox/baz.txt?list=false
     body:
       encoding: US-ASCII
       string: ''
