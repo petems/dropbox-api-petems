@@ -1,57 +1,38 @@
 require "spec_helper"
 
-describe Dropbox::API::Dir, vcr: true do
+describe Dropbox::API::Dir, :vcr => true do
 
-  after do
-    # @dir.delete
+  before do
+    @client = Dropbox::Spec.instance
+    @dirname = "dir-spec-tests"
+    @dir = @client.mkdir @dirname
   end
 
-  describe "#hash" do
+  describe "#copy" do
 
-    let(:hash) { "dasdsaf32da" }
-
-    it "returns the hash from Dropbox" do
-      dir = Dropbox::API::Dir.new("hash" => hash)
-      dir.hash.should == hash
+    it "copies the dir properly" do
+      new_dirname = @dirname + "-copied"
+      @dir.copy new_dirname
+      @dir.path.should == new_dirname
     end
 
   end
 
-  context "operations" do
+  describe "#move" do
 
-    before do
-      @client = Dropbox::Spec.instance
-      @dirname = "#{Dropbox::Spec.test_dir}/spec-dir-test-#{Time.now.to_i}"
-      @dir = @client.mkdir @dirname
+    it "moves the dir properly" do
+      new_dirname = @dirname + "-copied"
+      @dir.move new_dirname
+      @dir.path.should == new_dirname
     end
 
-    describe "#copy" do
+  end
 
-      it "copies the dir properly" do
-        new_dirname = @dirname + "-copied"
-        @dir.copy new_dirname
-        @dir.path.should == new_dirname
-      end
+  describe "#destroy" do
 
-    end
-
-    describe "#move" do
-
-      it "moves the dir properly" do
-        new_dirname = @dirname + "-copied"
-        @dir.move new_dirname
-        @dir.path.should == new_dirname
-      end
-
-    end
-
-    describe "#destroy" do
-
-      it "destroys the dir properly" do
-        @dir.destroy
-        @dir.is_deleted.should == true
-      end
-
+    it "destroys the dir properly" do
+      @dir.destroy
+      @dir.is_deleted.should == true
     end
 
   end
